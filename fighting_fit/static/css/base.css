@@ -7,7 +7,7 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Fredoka';
 }
 
 /* from Bulma */
@@ -21,6 +21,12 @@ body {
 
 .logo-font {
     text-transform: uppercase;
+}
+
+.semi-transparent-bg {
+    background-color: rgba(65, 65, 65, 0.7);
+    padding: 10px;
+    min-width: 248.25px;
 }
 
 .main-logo-link {
