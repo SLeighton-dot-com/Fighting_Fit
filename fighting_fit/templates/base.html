@@ -110,8 +110,8 @@
                                 class="dropdown-menu border-0"
                                 aria-labelledby="user-options"
                             >
-                                {% if request.user.is_authenticated %} {% if
-                                request.user.is_superuser %}
+                                {% if request.user.is_authenticated %} 
+                                {% if request.user.is_superuser %}
                                 <a href="" class="dropdown-item"
                                     >Shop Item Management</a
                                 >
@@ -148,8 +148,7 @@
                                         ></i>
                                     </div>
                                     <p class="my-0">
-                                        {% if grand_total %} ${{
-                                        grand_total|floatformat:2 }} {% else %}
+                                        {% if grand_total %} ${{grand_total|floatformat:2 }} {% else %}
                                         $0.00 {% endif %}
                                     </p>
                                 </div>
@@ -171,8 +170,8 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    {% include 'includes/mobile-top-header.html' %} {% include
-                    'includes/main-nav.html' %}
+                    {% include 'includes/mobile-top-header.html' %} 
+                    {% include 'includes/main-nav.html' %}
                 </nav>
             </div>
         </header>
@@ -182,4 +181,11 @@
         {% endif %} {% block page_header %} {% endblock %} {% block content %}
         {% endblock %} {% block postloadjs %} {% endblock %}
     </body>
+
+    <footer>
+        <div class="col-12 col">
+            <p>This website is for academic purposes only</p>
+        </div>
+    </footer>
+                
 </html>
