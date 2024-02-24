@@ -1,1 +1,119 @@
-[{"pk":1,"model":"products.product","fields":{"product_sku":"pp5001340155","product_name":"Black MMA Gloves","product_description":"Black MMA Gloves, essential cage wear","product_price":30.99,"product_category":2,"product_image_url":"","product_image":"black_mma_gloves.jpg"}},{"pk":2,"model":"products.product","fields":{"product_sku":"pp5001340135","product_name":"Blue Boxing Gloves","product_description":"Blue Boxing Gloves, essential cage wear","product_price":30.99,"product_category":1,"product_image_url":"","product_image":"blue_boxing_gloves.jpg"}},{"pk":3,"model":"products.product","fields":{"product_sku":"pp5001350155","product_name":"Gold Boxing Gloves","product_description":"Gold Boxing Gloves, essential cage wear","product_price":30.99,"product_category":1,"product_image_url":"","product_image":"gold_boxing_gloves.jpg"}},{"pk":4,"model":"products.product","fields":{"product_sku":"pp5541340155","product_name":"Orange MMA Gloves","product_description":"Orange MMA Gloves, essential cage wear","product_price":30.99,"product_category":2,"product_image_url":"","product_image":"orange_mma_gloves.jpg"}},{"pk":5,"model":"products.product","fields":{"product_sku":"pp5008340155","product_name":"Pink MMA Gloves","product_description":"Pink MMA Gloves, essential cage wear","product_price":30.99,"product_category":2,"product_image_url":"","product_image":"pink_mma_gloves.jpg"}},{"pk":6,"model":"products.product","fields":{"product_sku":"pp5001330155","product_name":"Red Boxing Gloves","product_description":"Red Boxing Gloves, essential ring wear","product_price":45.99,"product_category":2,"product_image_url":"","product_image":"red_boxing_gloves.jpg"}},{"pk":7,"model":"products.product","fields":{"product_sku":"pp5001349155","product_name":"Red Head Guard","product_description":"Red Head Guard, essential ring wear","product_price":37.99,"product_category":1,"product_image_url":"","product_image":"red_head_guard.jpg"}},{"pk":8,"model":"products.product","fields":{"product_sku":"pp7001340155","product_name":"Red MMA Gloves","product_description":"Red MMA Gloves, essential cage wear","product_price":30.99,"product_category":2,"product_image_url":"","product_image":"red_mma_gloves.jpg"}},{"pk":9,"model":"products.product","fields":{"product_sku":"pp5901340155","product_name":"White Boxing Gloves","product_description":"White Boxing Gloves, essential cage wear","product_price":45.99,"product_category":1,"product_image_url":"","product_image":"white_boxing_gloves.jpg"}}]
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5001340155",
+            "product_name": "Black MMA Gloves",
+            "product_description": "Black MMA Gloves, essential cage wear",
+            "product_price": 30.99,
+            "product_category": 2,
+            "product_image_url": "",
+            "product_image": "black_mma_gloves.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5001340135",
+            "product_name": "Blue Boxing Gloves",
+            "product_description": "Blue Boxing Gloves, essential cage wear",
+            "product_price": 30.99,
+            "product_category": 1,
+            "product_image_url": "",
+            "product_image": "blue_boxing_gloves.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5001350155",
+            "product_name": "Gold Boxing Gloves",
+            "product_description": "Gold Boxing Gloves, essential cage wear",
+            "product_price": 30.99,
+            "product_category": 1,
+            "product_image_url": "",
+            "product_image": "gold_boxing_gloves.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5541340155",
+            "product_name": "Orange MMA Gloves",
+            "product_description": "Orange MMA Gloves, essential cage wear",
+            "product_price": 30.99,
+            "product_category": 2,
+            "product_image_url": "",
+            "product_image": "orange_mma_gloves.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5008340155",
+            "product_name": "Pink MMA Gloves",
+            "product_description": "Pink MMA Gloves, essential cage wear",
+            "product_price": 30.99,
+            "product_category": 2,
+            "product_image_url": "",
+            "product_image": "pink_mma_gloves.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5001330155",
+            "product_name": "Red Boxing Gloves",
+            "product_description": "Red Boxing Gloves, essential ring wear",
+            "product_price": 45.99,
+            "product_category": 2,
+            "product_image_url": "",
+            "product_image": "red_boxing_gloves.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5001349155",
+            "product_name": "Red Head Guard",
+            "product_description": "Red Head Guard, essential ring wear",
+            "product_price": 37.99,
+            "product_category": 1,
+            "product_image_url": "",
+            "product_image": "red_head_guard.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp7001340155",
+            "product_name": "Red MMA Gloves",
+            "product_description": "Red MMA Gloves, essential cage wear",
+            "product_price": 30.99,
+            "product_category": 2,
+            "product_image_url": "",
+            "product_image": "red_mma_gloves.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "product_sku": "pp5901340155",
+            "product_name": "White Boxing Gloves",
+            "product_description": "White Boxing Gloves, essential cage wear",
+            "product_price": 45.99,
+            "product_category": 1,
+            "product_image_url": "",
+            "product_image": "white_boxing_gloves.jpg"
+        }
+    }
+]

@@ -3,11 +3,12 @@ html {
 }
 
 body {
-    background: url('/media/home_background_image_cropped.jpg') no-repeat center center fixed;
+    background: url("/media/home_background_image_cropped.jpg") no-repeat center
+        center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Fredoka';
+    font-family: "Fredoka";
 }
 
 /* from Bulma */
@@ -66,9 +67,9 @@ body {
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
 /* fixed top navbar only on medium and up */
