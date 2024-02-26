@@ -34,10 +34,10 @@
                 Clothing
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Martital Art Gi</a>
-                <a href="" class="dropdown-item">Bottoms</a>
-                <a href="" class="dropdown-item">Tops</a>
-                <a href="" class="dropdown-item">All Clothing</a>
+                <a href="{% url 'products' %}?category=martial_arts" class="dropdown-item">Martial Art Gi</a>
+                <a href="{% url 'products' %}?category=bottoms" class="dropdown-item">Bottoms</a>
+                <a href="{% url 'products' %}?category=tops" class="dropdown-item">Tops</a>
+                <a href="{% url 'products' %}?category=martial_arts,bottoms,tops" class="dropdown-item">All Clothing</a>
             </div>
         </li>
 
@@ -53,9 +53,9 @@
                 Sparring Gear
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="sparring-link">
-                <a href="" class="dropdown-item">Gloves</a>
-                <a href="" class="dropdown-item">Pads</a>
-                <a href="" class="dropdown-item">All Sparring Gear</a>
+                <a href="{% url 'products' %}?category=mma_gear" class="dropdown-item">MMA</a>
+                <a href="{% url 'products' %}?category=boxing_gear" class="dropdown-item">Boxing</a>
+                <a href="{% url 'products' %}?category=mma_gear,boxing_gear" class="dropdown-item">All Sparring Gear</a>
             </div>
         </li>
 
@@ -71,9 +71,9 @@
                 Workout &amp; Mobility Guides
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="guides-link">
-                <a href="" class="dropdown-item">Workout</a>
-                <a href="" class="dropdown-item">Stretching</a>
-                <a href="" class="dropdown-item">All Guides</a>
+                <a href="{% url 'products' %}?category=workouts" class="dropdown-item">Workouts</a>
+                <a href="{% url 'products' %}?category=stretching" class="dropdown-item">Stretching</a>
+                <a href="{% url 'products' %}?category=workouts,stretching" class="dropdown-item">All Guides</a>
             </div>
         </li>
     </ul>
