@@ -6,11 +6,13 @@ from bag.context import bag_contents
 from .models import Order, OrderLineItem
 from products.models import Product
 import stripe
+from django.conf import settings
 
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    intent = None
 
     bag = request.session.get('bag', {})
     if request.method == 'POST':
@@ -62,6 +64,7 @@ def checkout(request):
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
+        pass
     else:
         bag = request.session.get('bag', {})
         if not bag:
