@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    
+    # Other apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'fighting_fit.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -75,7 +80,12 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.context.bag_contents',
+                'django.template.context_processors.media',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
