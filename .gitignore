@@ -12,3 +12,7 @@ venv/
 .vscode/
 setup.bat
 .env
+eslintrc.json
+package-lock.json
+package.json
+prettierignore
