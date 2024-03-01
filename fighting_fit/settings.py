@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-88lq8m4moh27^&*e-kt&*^c_x#6@wlvrj1(aorsypx3=ux@be4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["fighting-fit-f908dd53bf3f.herokuapp.com", '127.0.0.1']
+ALLOWED_HOSTS = ["fighting-fit-f908dd53bf3f.herokuapp.com"]
 
 
 
@@ -191,3 +191,8 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
