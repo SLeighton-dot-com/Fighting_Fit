@@ -12,7 +12,8 @@ venv/
 .vscode/
 setup.bat
 .env
-eslintrc.json
+.eslintrc.json
 package-lock.json
 package.json
-prettierignore
+.prettierignore
+local_settings.py
