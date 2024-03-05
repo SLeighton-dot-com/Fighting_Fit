@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-3 my-1">
                             {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.product_image.url }}" alt="{{ item.product.product_name }}">
+                            <img class="w-100" src="{{ item.product.product_image.url }}" alt="{{ product.product_name }}">
                             {% else %}
                             <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.product_name }}">
                             {% endif %}
