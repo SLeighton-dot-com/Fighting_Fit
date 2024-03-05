@@ -34,6 +34,10 @@ body {
     min-width: 248.25px;
 }
 
+.container {
+    padding-bottom: 30px;
+}
+
 .main-logo-link {
     width: fit-content;
 }
