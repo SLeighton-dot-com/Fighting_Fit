@@ -5,6 +5,7 @@ from django.conf import settings
 from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -61,4 +62,10 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.product_sku} on order {self.order.order_number}'
+    
+class Review(models.Model):
+    order_number = models.CharField(max_length=255)
+    user_name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()
     

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order
+from .models import Order, Review
 
 
 class OrderForm(forms.ModelForm):
@@ -34,3 +34,11 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
+class ReviewForm(forms.ModelForm):
+    order_number = forms.CharField(widget=forms.HiddenInput())
+    user_name = forms.CharField(widget=forms.HiddenInput())
+    text = forms.CharField(widget=forms.Textarea)
+    class Meta:
+        model = Review
+        fields = ['order_number', 'user_name', 'text']

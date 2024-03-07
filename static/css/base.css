@@ -38,6 +38,12 @@ body {
     padding-bottom: 30px !important;
 }
 
+.review-textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
 .main-logo-link {
     width: fit-content;
 }

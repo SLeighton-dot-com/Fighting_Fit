@@ -13,6 +13,7 @@ from bag.context import bag_contents
 
 import stripe
 import json
+from .forms import ReviewForm
 
 
 @require_POST
@@ -180,3 +181,20 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+def add_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.order_number = request.POST.get('order_number')
+            review.user_name = request.POST.get('user_name')
+            review.save()
+            print(form)
+            return redirect('view_bag')
+        else:
+            print(form.errors)
+    else:
+        form = ReviewForm()
+        
+    return render(request, 'view_bag', {'form': form})
