@@ -39,7 +39,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-    
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -94,7 +94,8 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment")
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
@@ -182,19 +183,25 @@ def checkout_success(request, order_number):
 
     return render(request, template, context)
 
-def add_review(request):
+
+def add_review(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            review.order_number = request.POST.get('order_number')
-            review.user_name = request.POST.get('user_name')
+            # review.order_number = request.POST.get('order_number')
+            # review.user_name = request.POST.get('user_name')
             review.save()
-            print(form)
-            return redirect('view_bag')
-        else:
-            print(form.errors)
+            messages.success(request, 'Form submitted successfully.')
+            return redirect('/profile/')
     else:
-        form = ReviewForm()
-        
-    return render(request, 'view_bag', {'form': form})
+        form = ReviewForm(
+            initial={'order_number': order.order_number, 'user_name': order.full_name})
+
+    context = {
+        'form': form,
+        'order': order,
+    }
+    # does not work currently
+    return render(request, 'checkout_success/', context) # change this to the correct template

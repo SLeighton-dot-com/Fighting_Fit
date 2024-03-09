@@ -67,5 +67,5 @@ class Review(models.Model):
     order_number = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
-    text = models.TextField()
+    review_text = models.TextField()
     

@@ -201,11 +201,11 @@
         <div class="row">
             <div class="col-lg-7 col-12">
                 <div class="review-form-wrapper p-2 border">
-                    <form method="post">
+                    <form method="post" action="{% url 'add_review' order_id=order.id %}">
                         {% csrf_token %}
                         <input type="hidden" name="order_number" value="{{ order.order_number }}">
                         <input type="hidden" name="user_name" value="{{ order.full_name }}">
-                        <textarea type="text" class="review-textarea" placeholder="Enter your review here..."></textarea>
+                        <textarea type="text" name="review_text" class="review-textarea" placeholder="Enter your review here..."></textarea>
                         {{ form|crispy }}
                         <button type="submit" class="btn btn-primary">Submit Review</button>
                     </form>

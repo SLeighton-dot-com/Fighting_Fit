@@ -38,7 +38,7 @@ class OrderForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     order_number = forms.CharField(widget=forms.HiddenInput())
     user_name = forms.CharField(widget=forms.HiddenInput())
-    text = forms.CharField(widget=forms.Textarea)
+    review_text = forms.CharField(widget=forms.Textarea)
     class Meta:
         model = Review
-        fields = ['order_number', 'user_name', 'text']
+        fields = ['order_number', 'user_name', 'review_text']
