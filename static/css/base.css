@@ -72,6 +72,11 @@ body {
     padding-right: 0px;
 }
 
+.no-pad {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .btn-black {
     background: black;
     color: white;
