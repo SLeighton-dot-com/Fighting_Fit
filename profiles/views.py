@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm, NewsletterForm
 from checkout.models import Order
 from django.contrib.auth.decorators import login_required
 
@@ -16,7 +16,8 @@ def profile(request):
             messages.success(request, 'Profile updated successfully')
 
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -28,6 +29,7 @@ def profile(request):
     }
 
     return render(request, template, context)
+
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
@@ -44,3 +46,16 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+def newsletter_subscribe(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you for subscribing!')
+            return redirect('/profile/')
+    else:
+        messages.error(
+            request, 'Subscription failed. Please ensure the form is valid.')
+    return render(request, '/profile/', {'form': form})

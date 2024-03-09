@@ -1,5 +1,8 @@
 from django import forms
 from .models import UserProfile
+from .models import NewsletterSubscriber
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 
 class UserProfileForm(forms.ModelForm):
@@ -32,3 +35,14 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False
+            
+class NewsletterForm(forms.ModelForm):
+    class Meta:
+        model = NewsletterSubscriber
+        fields = ['email']
+
+    def __init__(self, *args, **kwargs):
+        super(NewsletterForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Subscribe'))

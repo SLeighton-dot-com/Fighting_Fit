@@ -204,4 +204,4 @@ def add_review(request, order_id):
         'order': order,
     }
     # does not work currently
-    return render(request, 'checkout_success/', context) # change this to the correct template
+    return render(request, '/checkout_success/', context) # change this to the correct template

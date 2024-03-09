@@ -171,6 +171,13 @@
                     {% include 'includes/main-nav.html' %}
                 </nav>
             </div>
+            {% if not request.user.is_authenticated %}
+            <div id="newsletter-banner" class="row text-center">
+                <div class="col bg-black text-white" data-toggle="modal" type="button" data-target="#newsletterModal">
+                    <h4 class="logo-font my-1">Sign up to the newsletter!</h4>
+                </div>
+            </div>
+            {% endif %}
         </header>
 
         {% if messages %}
@@ -187,11 +194,35 @@
                 {% endif %}
             {% endwith %}
         {% endfor %}
+        {% endif %}
         </div>
-        {% endif %} {% block page_header %} {% endblock %} {% block content %}
+        <!-- Newsletter Modal -->
+        <div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-labelledby="newsletterModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newsletterModalLabel">Newsletter Sign-up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{% url 'profiles:newsletter_subscribe' %}" method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary mt-3">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block page_header %} {% endblock %} {% block content %}
         {% endblock %} {% block postloadjs %} 
         <script type="text/javascript">
             $('.toast').toast('show');
+            $(document).ready(function() {
+                $('#newsletterModal').modal(options)
+            });
         </script>
         {% endblock %}
     </body>
