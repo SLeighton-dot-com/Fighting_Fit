@@ -67,7 +67,7 @@ class Review(models.Model):
     order_number = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
-    review_text = models.TextField()
+    review_text = models.TextField(max_length=200)
     
     def __str__(self):
         return f"Review by {self.user_name} on {self.created_at.strftime('%Y-%m-%d')} for order {self.order_number}"

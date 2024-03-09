@@ -5,22 +5,53 @@
     </div>
 </div>
 {% endblock %} {% block content %}
-<div class="container h-100">
-    <div class="row h-100">
+<div class="container">
+    <div class="row">
         <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-5 logo-font semi-transparent-bg text-white">
+            <h1 class="display-5 logo-font shop-heading text-white">
                 New fighting equipment
             </h1>
-            <div class="my-5">
-                <h4>
-                    <a
-                        href="{% url 'products' %}"
-                        class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3"
-                        >Start your journey to a new you here</a
-                    >
-                </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7 col-md-6 my-auto">
+            <h4>
+                <a href="{% url 'products' %}"
+                    class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
+                    Start your journey to a new you here
+                </a>
+            </h4>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row semi-transparent-bg">
+        <div class="col-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for review in reviews %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner">
+                    {% for review in reviews %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="carousel-content">
+                        <p>Reviewed by {{ review.user_name }} on {{ review.created_at|date:"Y-m-d" }}</p>
+                        <p>{{ review.review_text }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#carouselExampleIndicators').carousel();
+    });
+</script>
+
 {% endblock %}

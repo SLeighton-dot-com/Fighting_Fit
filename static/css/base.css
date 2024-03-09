@@ -26,12 +26,24 @@ body {
 
 .logo-font {
     text-transform: uppercase;
+    text-align: center;
+    font-size: 1.25rem;
 }
 
 .semi-transparent-bg {
-    background-color: rgba(65, 65, 65, 0.7);
-    padding: 10px;
-    min-width: 248.25px;
+    background-color: rgba(29, 29, 29, 0.9);
+}
+
+.carousel-item {
+    min-height: 200px;
+    padding: 50px;
+    height: 200px;
+}
+
+.carousel-content {
+    justify-content: center;
+    display: grid;
+    color: white;
 }
 
 .container {
@@ -48,10 +60,16 @@ body {
     width: fit-content;
 }
 
-.shop-now-button {
+.shop-now-button,
+.shop-heading {
     background: black;
     color: white;
     min-width: 260px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .btn-black {
@@ -138,17 +156,16 @@ a.category-badge > span.badge:hover {
     height: 2px;
 }
 
-input[name='q']::placeholder {
+input[name="q"]::placeholder {
     color: #aab7c4;
 }
 
-
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -177,7 +194,7 @@ input[name='q']::placeholder {
     border-color: #dc3545;
 }
 
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #dc3545;
     border-color: #dc3545;
     border-radius: 0;
@@ -235,7 +252,7 @@ footer {
 
 .col-xl-3,
 .col.md-6 {
-    margin-bottom: 3rem!important;
+    margin-bottom: 3rem !important;
 }
 
 /* Allauth form formatting */
@@ -250,7 +267,7 @@ footer {
     border-radius: 0;
 }
 
-.allauth-form-inner-content label:not([for='id_remember']) {
+.allauth-form-inner-content label:not([for="id_remember"]) {
     display: none;
 }
 
@@ -259,9 +276,9 @@ footer {
 }
 
 .allauth-form-inner-content button,
-.allauth-form-inner-content input[type='submit'] {
-	/* btn */
-	display: inline-block;
+.allauth-form-inner-content input[type="submit"] {
+    /* btn */
+    display: inline-block;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -272,24 +289,28 @@ footer {
     user-select: none;
     background-color: #000;
     border: 1px solid #000;
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0;
 
     /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
 }
 
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
+.allauth-form-inner-content input[type="submit"]:hover {
+    color: #fff;
     background-color: #222;
     border-color: #222;
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+    color: #17a2b8; /* text-info */
 }
 
 /* -------------------------------- Media Queries */
@@ -323,5 +344,24 @@ footer {
 
     body {
         height: calc(100vh - 116px);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 250px;
+    }
+}
+
+@media (max-width: 520px) {
+    .carousel-item {
+        height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .carousel-item {
+        padding-top: 30px;
+        height: 400px;
     }
 }

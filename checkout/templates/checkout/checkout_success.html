@@ -205,9 +205,10 @@
                         {% csrf_token %}
                         <input type="hidden" name="order_number" value="{{ order.order_number }}">
                         <input type="hidden" name="user_name" value="{{ order.full_name }}">
-                        <textarea type="text" name="review_text" class="review-textarea" placeholder="Enter your review here..."></textarea>
+                        <textarea type="text" name="review_text" class="review-textarea" maxlength="200" placeholder="Enter your review here..."></textarea>
                         {{ form|crispy }}
                         <button type="submit" class="btn btn-primary">Submit Review</button>
+                        <small>Max 200 letters</small>
                     </form>
                 </div>
             </div>
