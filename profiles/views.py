@@ -55,7 +55,7 @@ def newsletter_subscribe(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Thank you for subscribing!')
-            return redirect(reverse('profile'))
+            return redirect(reverse('home'))
         else:
             messages.error(
                 request, 'Subscription failed. Please ensure the form is valid.')
