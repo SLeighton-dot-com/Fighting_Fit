@@ -4,6 +4,7 @@ from .models import UserProfile
 from .forms import UserProfileForm, NewsletterForm
 from checkout.models import Order
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 @login_required
@@ -54,8 +55,15 @@ def newsletter_subscribe(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Thank you for subscribing!')
-            return redirect('/profile/')
+            return redirect(reverse('profile'))
+        else:
+            messages.error(
+                request, 'Subscription failed. Please ensure the form is valid.')
     else:
-        messages.error(
-            request, 'Subscription failed. Please ensure the form is valid.')
-    return render(request, '/profile/', {'form': form})
+        form = NewsletterForm()
+        
+    template = 'profiles/profile.html'
+    context = {
+        'form': form,
+    }
+    return render(request, template, context)
