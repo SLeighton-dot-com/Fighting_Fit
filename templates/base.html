@@ -113,7 +113,7 @@
                                     >Shop Item Management</a
                                 >
                                 {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}"
                                     class="dropdown-item"
                                     >Logout</a
@@ -171,6 +171,7 @@
                     {% include 'includes/main-nav.html' %}
                 </nav>
             </div>
+            <!-- Newsletter Modal Trigger -->
             {% if not request.user.is_authenticated %}
             <div id="newsletter-banner" class="row text-center">
                 <div class="col bg-black text-white" data-toggle="modal" type="button" data-target="#newsletterModal">
