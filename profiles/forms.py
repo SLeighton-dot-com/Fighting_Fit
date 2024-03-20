@@ -37,6 +37,7 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].label = False
             
 class NewsletterForm(forms.ModelForm):
+    email = forms.EmailField( label='Email')
     class Meta:
         model = NewsletterSubscriber
         fields = ['email']
