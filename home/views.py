@@ -8,3 +8,6 @@ def index(request):
         'reviews': reviews,
     }
     return render(request, 'home/index.html', context)
+
+def my_custom_404_view(request, exception):
+    return render(request, '404.html', {}, status=404)
