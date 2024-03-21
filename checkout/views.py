@@ -192,11 +192,9 @@ def add_review(request, order_id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            # review.order_number = request.POST.get('order_number')
-            # review.user_name = request.POST.get('user_name')
             review.save()
             messages.success(request, 'Form submitted successfully.')
-            return redirect('bag/')
+            return redirect(reverse('checkout_success', kwargs={'order_number': order.order_number}))
     else:
         form = ReviewForm(
             initial={'order_number': order.order_number, 'user_name': order.full_name})
@@ -205,5 +203,4 @@ def add_review(request, order_id):
         'form': form,
         'order': order,
     }
-    # does not work currently
-    return render(request, '/checkout_success/', context) # change this to the correct template
+    return render(request, 'checkout_success', context)
