@@ -135,8 +135,10 @@ def checkout(request):
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
     }
+    
+    if 'intent' in locals():
+        context['client_secret'] = intent.client_secret
 
     return render(request, template, context)
 
@@ -194,7 +196,7 @@ def add_review(request, order_id):
             # review.user_name = request.POST.get('user_name')
             review.save()
             messages.success(request, 'Form submitted successfully.')
-            return redirect('/profile/')
+            return redirect('bag/')
     else:
         form = ReviewForm(
             initial={'order_number': order.order_number, 'user_name': order.full_name})
