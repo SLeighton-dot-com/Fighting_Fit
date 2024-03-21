@@ -218,6 +218,7 @@
                     <div class="modal-body">
                         <form action="{% url 'profiles:newsletter_subscribe' %}" method="post">
                             {% csrf_token %}
+                            <input type="hidden" name="redirect_to" value="{{ request.path }}">
                             <input type="email" name="email" class="form-control" placeholder="Enter your email address" required>
                             {{ form|crispy }}
                             <button type="submit" class="btn btn-primary mt-3">Subscribe</button>

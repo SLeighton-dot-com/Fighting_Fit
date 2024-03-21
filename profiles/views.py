@@ -55,7 +55,8 @@ def newsletter_subscribe(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Thank you for subscribing!')
-            return redirect(request.META.get('HTTP_REFERER', '/products/'))
+            redirect_path = request.POST.get('redirect_to', '/')
+            return redirect(redirect_path)
         else:
             messages.error(
                 request, 'Subscription failed. Please ensure the form is valid.')
