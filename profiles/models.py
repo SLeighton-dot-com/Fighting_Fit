@@ -36,7 +36,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     instance.userprofile.save()
     
 class NewsletterSubscriber(models.Model):
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
 
     def __str__(self):
         return self.email

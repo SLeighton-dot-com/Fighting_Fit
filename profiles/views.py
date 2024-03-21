@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import UserProfile
+from .models import UserProfile, NewsletterSubscriber
 from .forms import UserProfileForm, NewsletterForm
 from checkout.models import Order
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,6 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
-
         else:
             messages.error(
                 request, 'Update failed. Please ensure the form is valid.')
@@ -55,18 +54,23 @@ logger = logging.getLogger(__name__)
 
 def newsletter_subscribe(request):
     try:
-        print("Request Path:", request.path)  # Debugging line
         if request.method == 'POST':
-            print("Form Data:", request.POST)  # Debugging line
             form = NewsletterForm(request.POST)
             if form.is_valid():
-                form.save()
-                messages.success(request, 'Thank you for subscribing!')
+                email = form.cleaned_data['email']
+                if NewsletterSubscriber.objects.filter(email=email).exists():
+                    messages.error(request, 'This email address is already subscribed.')
+                    redirect_path = request.POST.get('redirect_to', 'home')
+                    return redirect(redirect_path)
+                else:
+                    form.save()
+                    messages.success(request, 'Thank you for subscribing!')
+                    redirect_path = request.POST.get('redirect_to', 'home')
+                    return redirect(redirect_path)
+            else:
+                messages.error(request, 'Subscription failed. Please ensure the form is valid.')
                 redirect_path = request.POST.get('redirect_to', 'home')
                 return redirect(redirect_path)
-            else:
-                messages.error(
-                    request, 'Subscription failed. Please ensure the form is valid.')
         else:
             form = NewsletterForm()
             
