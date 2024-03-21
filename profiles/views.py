@@ -5,6 +5,7 @@ from .forms import UserProfileForm, NewsletterForm
 from checkout.models import Order
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+import logging
 
 
 @login_required
@@ -49,24 +50,31 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+logger = logging.getLogger(__name__)
+
+
 def newsletter_subscribe(request):
-    print("Request Path:", request.path)  # Debugging line
-    if request.method == 'POST':
-        print("Form Data:", request.POST)  # Debugging line
-        form = NewsletterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Thank you for subscribing!')
-            redirect_path = request.POST.get('redirect_to', '/')
-            return redirect(redirect_path)
+    try:
+        print("Request Path:", request.path)  # Debugging line
+        if request.method == 'POST':
+            print("Form Data:", request.POST)  # Debugging line
+            form = NewsletterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Thank you for subscribing!')
+                redirect_path = request.POST.get('redirect_to', 'home')
+                return redirect(redirect_path)
+            else:
+                messages.error(
+                    request, 'Subscription failed. Please ensure the form is valid.')
         else:
-            messages.error(
-                request, 'Subscription failed. Please ensure the form is valid.')
-    else:
-        form = NewsletterForm()
-        
-    template = 'home/index.html'
-    context = {
-        'form': form,
-    }
-    return render(request, template, context)
+            form = NewsletterForm()
+            
+        template = 'home/index.html'
+        context = {
+            'form': form,
+        }
+        return render(request, template, context)
+    except Exception as e:
+        logger.exception("Failed to subscribe user to newsletter.")
+        raise
