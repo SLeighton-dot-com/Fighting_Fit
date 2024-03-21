@@ -50,7 +50,9 @@ def order_history(request, order_number):
 
 
 def newsletter_subscribe(request):
+    print("Request Path:", request.path)  # Debugging line
     if request.method == 'POST':
+        print("Form Data:", request.POST)  # Debugging line
         form = NewsletterForm(request.POST)
         if form.is_valid():
             form.save()
