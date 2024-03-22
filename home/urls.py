@@ -5,5 +5,3 @@ from . import views
 urlpatterns = [
     path('', views.index, name='home')
 ]
-
-handler404 = 'home.views.my_custom_404_view'
