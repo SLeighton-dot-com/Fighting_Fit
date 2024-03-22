@@ -39,7 +39,7 @@
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="carousel-content">
                             <p>Reviewed by {{ review.user_name }} on {{ review.created_at|date:"Y-m-d" }}</p>
-                            <p>{{ review.review_text }}</p>
+                            <p class="text-truncate">{{ review.review_text }}</p>
                             {% if user.is_authenticated and user == review.user %}
                             <div class="review-btn">
                                 <button type="button" class="edit-btn" data-toggle="modal" data-target="#editReviewModal" data-review-id="{{ review.id }}" data-review-text="{{ review.review_text|escapejs }}">Edit</button>
