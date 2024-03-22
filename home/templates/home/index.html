@@ -41,11 +41,13 @@
                             <p>Reviewed by {{ review.user_name }} on {{ review.created_at|date:"Y-m-d" }}</p>
                             <p>{{ review.review_text }}</p>
                             {% if user.is_authenticated and user == review.user %}
+                            <div class="review-btn">
                                 <button type="button" class="edit-btn" data-toggle="modal" data-target="#editReviewModal" data-review-id="{{ review.id }}" data-review-text="{{ review.review_text|escapejs }}">Edit</button>
                                 <form action="{% url 'delete_review' review.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this review?');">
                                     {% csrf_token %}
                                     <button type="submit" class="edit-btn">Delete</button>
                                 </form>
+                            </div>
                             {% endif %}
                         </div>
                     </div>
@@ -70,8 +72,9 @@
                     <input type="hidden" name="reviewId" id="modalReviewId" value="">
                     <div class="form-group">
                         <label for="modalReviewText" class="col-form-label">Review:</label>
-                        <textarea class="form-control" id="modalReviewText" name="reviewText"></textarea>
+                        <textarea class="form-control" id="modalReviewText" name="reviewText" maxlength="200"></textarea>
                     </div>
+                    <small>Max 200 letters</small>
                 </div>
                 <div class="modal-footer">
                     {% csrf_token %}

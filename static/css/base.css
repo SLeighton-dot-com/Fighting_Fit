@@ -37,13 +37,24 @@ body {
 .carousel-item {
     min-height: 200px;
     padding: 50px;
-    height: 200px;
+    height: 250px;
 }
 
 .carousel-content {
     justify-content: center;
     display: grid;
     color: white;
+}
+
+.review-btn {
+    justify-self: center;
+}
+
+.edit-btn {
+    width: 250px;
+    background-color: darkgray;
+    opacity: 0.5;
+    font-size: small;
 }
 
 .container {
@@ -391,7 +402,7 @@ footer {
 
 @media (max-width: 768px) {
     .carousel-item {
-        height: 250px;
+        height: 350px;
     }
 }
 
