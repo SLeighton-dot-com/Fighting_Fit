@@ -64,6 +64,7 @@ class OrderLineItem(models.Model):
         return f'SKU {self.product.product_sku} on order {self.order.order_number}'
     
 class Review(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     order_number = models.CharField(max_length=255)
     user_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)

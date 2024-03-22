@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, Review
 
 from products.models import Product
 from profiles.models import UserProfile
@@ -192,6 +192,7 @@ def add_review(request, order_id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
+            review.user = request.user
             review.save()
             messages.success(request, 'Form submitted successfully.')
             return redirect(reverse('checkout_success', kwargs={'order_number': order.order_number}))
@@ -204,3 +205,32 @@ def add_review(request, order_id):
         'order': order,
     }
     return render(request, 'checkout_success', context)
+
+
+def update_review(request):
+    review_id = request.POST.get('reviewId')
+    new_text = request.POST.get('reviewText')
+
+    review = get_object_or_404(Review, id=review_id)
+
+    if review.user != request.user:
+        messages.error(request, "You don't have permission to edit this review.")
+        return redirect('home')
+
+    review.review_text = new_text
+    review.save()
+
+    messages.success(request, "Your review was successfully updated.")
+    return redirect('home')
+
+
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+
+    if review.user == request.user or request.user.is_superuser:
+        review.delete()
+        messages.success(request, "Review deleted successfully.")
+    else:
+        messages.error(request, "You don't have permission to delete this review.")
+
+    return redirect('home')

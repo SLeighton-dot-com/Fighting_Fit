@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+<!-- Review Carousel -->
 <div class="container">
     <div class="row semi-transparent-bg">
         <div class="col-12">
@@ -37,8 +38,15 @@
                     {% for review in reviews %}
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <div class="carousel-content">
-                        <p>Reviewed by {{ review.user_name }} on {{ review.created_at|date:"Y-m-d" }}</p>
-                        <p>{{ review.review_text }}</p>
+                            <p>Reviewed by {{ review.user_name }} on {{ review.created_at|date:"Y-m-d" }}</p>
+                            <p>{{ review.review_text }}</p>
+                            {% if user.is_authenticated and user == review.user %}
+                                <button type="button" class="edit-btn" data-toggle="modal" data-target="#editReviewModal" data-review-id="{{ review.id }}" data-review-text="{{ review.review_text|escapejs }}">Edit</button>
+                                <form action="{% url 'delete_review' review.id %}" method="post" onsubmit="return confirm('Are you sure you want to delete this review?');">
+                                    {% csrf_token %}
+                                    <button type="submit" class="edit-btn">Delete</button>
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -47,10 +55,43 @@
         </div>
     </div>
 </div>
+<!-- Review Edit Modal -->
+<div class="modal fade" id="editReviewModal" tabindex="-1" role="dialog" aria-labelledby="editReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="{% url 'update_review' %}" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editReviewModalLabel">Edit Review</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="reviewId" id="modalReviewId" value="">
+                    <div class="form-group">
+                        <label for="modalReviewText" class="col-form-label">Review:</label>
+                        <textarea class="form-control" id="modalReviewText" name="reviewText"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {% csrf_token %}
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     $(document).ready(function() {
         $('#carouselExampleIndicators').carousel();
+    });
+    $('.edit-btn').on('click', function() {
+        var reviewId = $(this).attr('data-review-id');
+        var reviewText = $(this).attr('data-review-text');
+        $('#modalReviewId').val(reviewId);
+        $('#modalReviewText').val(reviewText);
     });
 </script>
 
