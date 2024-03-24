@@ -14,6 +14,8 @@ from bag.context import bag_contents
 import stripe
 import json
 from .forms import ReviewForm
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 
 @require_POST
@@ -170,6 +172,31 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
+    
+    # Email sender and recipient(s)
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [order.email]
+
+    # Context for rendering the email templates
+    context = {
+        'order': order,
+        'contact_email': from_email,  # Assuming you use the sender's email as contact email
+    }
+    
+    # Render the plain text email body with context
+    email_body = render_to_string('confirmation_emails/order_confirmation_email.txt', context)
+
+    # Render the email subject from a template
+    subject = render_to_string('confirmation_emails/confirmation_email_subject.txt', context).strip()
+
+    # Send the email with the rendered subject and plain text body
+    send_mail(
+        subject,
+        email_body,
+        from_email,
+        to_email,
+        fail_silently=False,
+    )
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
