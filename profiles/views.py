@@ -6,6 +6,7 @@ from checkout.models import Order
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 import logging
+from django.http import HttpResponseForbidden
 
 
 @login_required
@@ -34,6 +35,12 @@ def profile(request):
 @login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+    
+    # Check if the logged-in user is the one who made the order
+    if order.user != request.user:
+        # If not, show error message and redirect to profile page
+        messages.error(request, "You don't have permission to view this order.")
+        redirect('Profile')
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
