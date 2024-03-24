@@ -184,10 +184,10 @@ def checkout_success(request, order_number):
     }
     
     # Render the plain text email body with context
-    email_body = render_to_string('confirmation_emails/order_confirmation_email.txt', context)
+    email_body = render_to_string('checkout/confirmation_emails/confirmation_email_body.txt', context)
 
     # Render the email subject from a template
-    subject = render_to_string('confirmation_emails/confirmation_email_subject.txt', context).strip()
+    subject = render_to_string('checkout/confirmation_emails/confirmation_email_subject.txt', context).strip()
 
     # Send the email with the rendered subject and plain text body
     send_mail(
