@@ -40,7 +40,7 @@ def order_history(request, order_number):
     if order.email != request.user.email:
         # If not, show error message and redirect to profile page
         messages.error(request, "You don't have permission to view this order.")
-        redirect('Profile')
+        return redirect('Profile')
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
