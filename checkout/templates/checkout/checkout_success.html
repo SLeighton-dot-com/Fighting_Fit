@@ -191,6 +191,7 @@
                 </div>
             </div>
         </div>
+        {% if request.user.is_authenticated %}
         <div class="row">
             <div class="col">
                 <hr>
@@ -213,6 +214,15 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">You Have To Be Logged In To Leave A Review</h2>
+                <hr>
+            </div>
+        </div>
+        {% endif %}
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
