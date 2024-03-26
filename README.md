@@ -1,39 +1,193 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## Technologies Used
+### Languages
+- [HTML](https://en.wikipedia.org/wiki/HTML) used as the markup language
+- [CSS](https://en.wikipedia.org/wiki/CSS) used to style the HTML
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) used mostly for DOM manipulation
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) used to run the backend application
 
-Welcome,
+### Frameworks and Libraries
+- [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction/) provided the base CSS framework
+- [Font Awesome 6.5.1](https://fontawesome.com/icons) is used for the icons throughout the app
+- [Google Fonts](https://fonts.google.com/) serves the fonts used in the app
+- [jQuery 3.7.1](https://jquery.com/) is used for example DOM manipulation and event handling
+- [Django v3.2.24](https://docs.djangoproject.com/en/3.2/) is the Python framework in thi project. Various Python packages have been used and they are listed below.
+<details>
+	<summary>Installed Python Libraries - click to view</summary>
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Package|Version|Description
+---|---|---
+asgiref|3.7.2|Essential components for building web applications, especially with Django
+boto3|1.34.54|The AWS SDK for Python, used to connect to S3 buckets
+botocore|1.34.54|Provides necessary API requests to AWS services
+certifi|2024.2.2|Provides Mozilla's CA Bundle for validating SSL certificates
+cffi|1.16.0|Provides a means for calling C code from Python using a simple API
+charset-normalizer|3.3.2|Aims to replace the chardet library within the requests toolkit
+cryptography|42.0.5|A package designed to expose cryptographic primitives and recipes to Python developers
+defusedxml|0.7.1|Mitigates XML-related security issues by wrapping standard Python XML parsers with safer implementations
+dj-database-url|0.5.0|Parses the DATABASE_URL environment variable to configure Django databases using a single format
+Django|3.2.24|The Django framework itself
+django-allauth|0.61.1|Provides authentication mechanisms, including social login
+django-countries|7.2.1|Offers a country field for Django models and forms
+django-crispy-forms|1.14.0|Controls the rendering behaviour of Django forms
+django-storages|1.14.2|A collection of custom storage backends for Django, used for Amazon S3 in this project
+gunicorn|21.2.0|A Python WSGI HTTP Server for UNIX
+idna|3.6|Implements the Internationalized Domain Names in Applications (IDNA) protocol
+jmespath|1.0.1|A query language for JSON
+oauthlib|3.2.2|A generic implementation of the OAuth request-signing logic
+packaging|23.2|Provides core utilities for Python packages
+pillow|10.2.0|The friendly PIL fork (Python Imaging Library)
+psycopg2|2.9.9|PostgreSQL database adapter
+pycparser|2.21|A complete parser of the C language
+PyJWT|2.8.0|A Python library for encoding and decoding JSON Web Tokens (JWTs)
+python-dateutil|2.9.0.post0|Provides powerful extensions to the standard datetime module
+python-dotenv|1.0.1|Reads key-value pairs from a .env file and sets them as environment variables
+python3-openid|3.2.0|A set of Python packages to support the use of OpenID
+pytz|2024.1|Enables Python programs to work with the Olson timezone database
+requests|2.31.0|Simplifies HTTP requests
+requests-oauthlib|1.3.1|Provides an easy-to-use interface for making OAuth authenticated requests
+s3transfer|0.10.0|A Python library for managing Amazon S3 transfers
+setuptools|69.1.1|A stable library designed to facilitate packaging Python projects
+six|1.16.0|A Python 2 and 3 compatibility library
+sqlparse|0.4.4|A non-validating SQL parser module for Python
+stripe|8.4.0|Library for Stripe’s API
+typing_extensions|4.10.0|Backports and experimental features for the typing module in Python
+tzdata|2024.1|The tzdata package contains data files with rules for various time zones
+urllib3|1.25.4|A powerful HTTP client for Python
+whitenoise|6.6.0|Simplified static file serving for WSGI applications
+</details>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+### Tools
+-  [Visual Studio Code](https://code.visualstudio.com/) - The IDE used during development
+- [AWS S3 Buckets](https://aws.amazon.com/s3/) - Used to host static files and media files
+- [Stripe](https://stripe.com/) - For accepting payments when checking out
+- [Microsoft Paint](https://en.wikipedia.org/wiki/Microsoft_Paint) & [Photos (Windows)](https://en.wikipedia.org/wiki/Photos_(Windows)) - Image editing and manipulation
+- [Git](https://git-scm.com/) - For version control
+- [GitHub](https://github.com/) - Repository storage and sharing of code
+- [Unsplash](https://unsplash.com/) - Image sourcing
+- [miramuse ai](https://miramuseai.net/) - Formerly called midjourney ai for product image creation
+- [Favicon](https://favicon.io/) - Used for Favicon generation
 
-## Codeanywhere Reminders
+### Databases
+- [SQLite3](https://www.sqlite.org/index.html) - The local database used during development
+- [Elephant SQL](https://www.elephantsql.com/) - PostgreSQL database used in production
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+### Hosting
+- [Heroku](https://www.heroku.com/) - Used to host the deployed version of this project
 
-`python3 -m http.server`
+## Deployment
+### Deploying To Heroku
+The following instructions are based on the user running VSCode on Windows 10. The process remains the same ff you are using a different IDE or OS, but your commands maybe slightly different.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+You will need [Python](https://www.python.org/downloads/) (ideally the latest version) installed on your machine. You will also need [PIP](https://pypi.org/project/pip/) which comes with Python versions 3.4 and later. Having [Git](https://git-scm.com/) is also highly recommended.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
 
-`http_server`
+- Save a copy of the repo on your local machine or use ``git clone https://github.com/SLeighton-dot-com/Fighting_Fit``.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Please make sure that before you follow these steps that:
+- The app has been deployed locally and then pushed to your own GitHub account.
+- You have created and configured an [AWS S3 Bucket](https://aws.amazon.com/s3/) for serving the media files and static
+- You have a [Stripe](https://stripe.com) account for taking payments
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+If you have the above in place follow the these steps:
+- In your `settings.py` file add the following code
+```
+import os(<Ensure this is at the head of the file>)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-To log into the Heroku toolbelt CLI:
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = 'DEVELOPMENT' in os.environ
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+ALLOWED_HOSTS = [<This will be the URL that Heroku assigned to your deployed site>]
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+# Email
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = '<fightingfit@example.com>'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'(<The Outgoing Mail Server for your email, for example `smtp.gmail.com`>)
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
----
+#Stripe
+load_dotenv()
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+```
 
-Happy coding!
+- Go to [heroku.com](https://heroku.com) and log in or create an account.
+- Click `New` to add a new app, give it a name, choose a region and click `Create app`.
+- On the `Setttings`  tab add the config var 'DATABASE_URL' and then copy in your `postgres//....` database url.
+- From your local IDE, in your `settings.py` file, under `DATABASES` section add the following code 
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+- Also in `settings.py` add the following code for AWS
+```
+if 'USE_AWS' in os.environ:
+    
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'fighting-fit'
+    AWS_S3_REGION_NAME = 'eu-west-2' (Or what server is closest to you)
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+- In your terminal run `python3 manage.py showmigrations`, you should see a list of the migrations and none of them should be checked off showing that your local deployment is now connected to the remote Postgres db, so you can run:
+- `python manage.py migrate` to set up the database
+- `python manage.py loaddata categories` to load the categories
+- `python manage.py loaddata products` to load the products
+- `python manage.py createsuperuser` to set up your admin account.
+- Go to your Postgress DB (I used Elephant SQL) and navigate to `Browser` click `Table queries` and the `auth_user`, click `Execute` and you should see your superuser details displayed.
+- Go back to the Dashboard, and from the `Setttings` tab, click the `Reveal Config Vars` button and add the following key / value pairs
+	- `EMAIL_HOST_USER` - The email address you want the app to send emails from
+	- `EMAIL_HOST_PASS` - The password for above email address
+	- `SECRET_KEY` - Use a Django Secret Key Gen, for example [this one](https://miniwebtool.com/django-secret-key-generator/).
+	- `STRIPE_PUBLIC_KEY` - Your Stripe API `Public key`
+	- `STRIPE_SECRET_KEY` - Your Stripe API `Secret key`
+	- `STRIPE_WH_SECRET` - This is your Webhook link for STRIPE
+	- `AWS_ACCESS_KEY_ID` - Your AWS Access Key
+	- `AWS_SECRET_ACCESS_KEY` - Your AWS Secret Access Key
+	- `USE_AWS` - Set this to `TRUE`
+- Back in the Heroku Dashboard, click the `Deploy` tab and scroll down to `Deployment Method`. Select `GitHub` and link your account and repository.
+- Scroll down further to `Automatic deploys` for Heroku to update your deployed site after you commit changes to Github. 
+- Scroll down to `Manual Deploy`, choose the branch you wish to deploy and click `Deploy Branch`
+- Wait for the app to build, and once complete, click `view` to launch your app in the browser.
+- Log in with the superuser details you created and navigate to the admin panel at `your-deployment-url/admin`
+
+## Acknowledgements and Credits
+
+* My Mentor Rory Patrick for helpful feedback and advice during mentor sessions throughout this project.
+
+* The Tutor support team at Code Institute and Amy Richardson for their support and guidance.
