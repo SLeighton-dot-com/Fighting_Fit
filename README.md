@@ -1,3 +1,7 @@
+## Testing
+[Testing.md](TESTING.md)
+
+
 ## Technologies Used
 ### Languages
 - [HTML](https://en.wikipedia.org/wiki/HTML) used as the markup language
@@ -186,7 +190,30 @@ if 'USE_AWS' in os.environ:
 - Wait for the app to build, and once complete, click `view` to launch your app in the browser.
 - Log in with the superuser details you created and navigate to the admin panel at `your-deployment-url/admin`
 
-## Acknowledgements and Credits
+## Credits
+
+### media
+
+- Hero Image
+home_background_image_cropped.jpg by https://unsplash.com/photos/people-sitting-on-floor-in-front-of-white-wall-DT3bb-KDAus
+
+- Workout images
+leg_workout.jpg https://unsplash.com/photos/woman-in-black-shirt-and-blue-denim-jeans-sitting-on-black-exercise-equipment-Z4Q9KHw9ofE
+chest_workouts.jpg https://unsplash.com/photos/man-in-black-crew-neck-t-shirt-and-gray-pants-sitting-on-black-and-red-bench-NXMZxygMw8o
+cardio_workout.jpg https://unsplash.com/photos/woman-holding-brown-ropes-U5kQvbQWoG0
+whole_body_workouts.jpg https://unsplash.com/photos/person-weightlifting-painting-vqDAUejnwKw
+arm_workouts.jpg https://unsplash.com/photos/topless-man-in-black-shorts-carrying-black-dumbbell-7kEpUPB8vNk
+
+- Stretching images
+yoga_stretches.jpg https://unsplash.com/photos/woman-in-blue-denim-jeans-lying-on-black-floor-GEjCwneU-YY
+leg_stretches.jpg https://unsplash.com/photos/woman-in-black-tank-top-and-black-pants-sitting-on-black-wooden-table-k1KCiRaDQhs
+core_stretches.jpg https://unsplash.com/photos/woman-doing-yoga-on-stability-ball-f4RBYsY2hxA
+all_body_stretches.jpg https://unsplash.com/photos/man-in-green-shorts-raising-his-both-hands-Ug9ZVq24CIk
+
+All other images on my project were genereated using Midjourney AI which changed name part way through my project to [Muse AI](https://miramuseai.net/)
+
+
+## Acknowledgements
 
 * My Mentor Rory Patrick for helpful feedback and advice during mentor sessions throughout this project.
 
